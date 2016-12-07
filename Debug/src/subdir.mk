@@ -4,12 +4,18 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/BruteForce.cpp \
+../src/StringMatchTest.cpp \
 ../src/main.cpp 
 
 OBJS += \
+./src/BruteForce.o \
+./src/StringMatchTest.o \
 ./src/main.o 
 
 CPP_DEPS += \
+./src/BruteForce.d \
+./src/StringMatchTest.d \
 ./src/main.d 
 
 
