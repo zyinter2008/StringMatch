@@ -5,7 +5,7 @@
 int BruteForce::match(const char *text, const char *pattern) {
 	printf(">>>text:%s<<<<\n", text);
 	printf(">>>pattern:%s<<<<\n", pattern);
-	if (*text == '/0' || *pattern == '/0') {
+	if (*text == '\0' || *pattern == '\0') {
 		return -1;
 	}
 	int tLen = strlen(text);
