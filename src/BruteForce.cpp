@@ -20,7 +20,7 @@ int BruteForce::match(const char *text, const char *pattern) {
 	const char *b = text;
 	const char *t = b;
 
-	while (*p != '\0') {
+	while (*t != '\0' ) {
 		printf(">>>p:%s<<<<\n", p);
 		printf(">>>t:%s<<<<\n", t);
 		printf(">>>pattern:%s<<<<\n", pattern);
