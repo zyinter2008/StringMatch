@@ -31,9 +31,8 @@ int KMPMethod::match(const char *text, const char *pattern) {
 		printf(">>>>>map[%d]=%d<<<<<\n", i, map[i]);
 	}
 
-	int i = 0;
 	int k = 0;
-	while (text[i] != '\0') {
+	for (int i = 0; i < tLen; i++) {
 		printf(">>>>>i=%d<<<<<\n", i);
 		while (k > 0 && pattern[k] != text[i]) {
 			k = map[k - 1];
@@ -42,12 +41,11 @@ int KMPMethod::match(const char *text, const char *pattern) {
 		if (pattern[k] == text[i]) {
 			k++;
 		}
-		i++;
 		printf(">>>>>k=%d<<<<<\n", k);
 		if (pattern[k] == '\0') {
 			printf(">>>>>i=%d<<<<<\n", i);
 			printf(">>>>>k=%d<<<<<\n", k);
-			return i - k;
+			return i - k + 1;
 		}
 	}
 
