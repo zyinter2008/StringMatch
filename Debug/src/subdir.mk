@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/BMMethod.cpp \
 ../src/BadCharMethod.cpp \
 ../src/BruteForce.cpp \
 ../src/KMPMethod.cpp \
@@ -11,6 +12,7 @@ CPP_SRCS += \
 ../src/main.cpp 
 
 OBJS += \
+./src/BMMethod.o \
 ./src/BadCharMethod.o \
 ./src/BruteForce.o \
 ./src/KMPMethod.o \
@@ -18,6 +20,7 @@ OBJS += \
 ./src/main.o 
 
 CPP_DEPS += \
+./src/BMMethod.d \
 ./src/BadCharMethod.d \
 ./src/BruteForce.d \
 ./src/KMPMethod.d \
