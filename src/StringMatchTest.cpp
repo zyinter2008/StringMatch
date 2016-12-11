@@ -43,3 +43,31 @@ TEST(StringMatchTest, should_return_right_position_when_match_pattern_str_by_kmp
 
 	ASSERT_EQ(15, kmp.match(text, pattern));
 }
+
+TEST(StringMatchTest, should_return_error_when_pattern_str_is_empty_in_kmp_method) {
+	KMPMethod kmp;
+	char text[] = "BBC ABCDAB ABCDABCDABDE", pattern[] = "";
+
+	ASSERT_EQ(-1, kmp.match(text, pattern));
+}
+
+TEST(StringMatchTest, should_return_error_when_text_str_is_empty_in_kmp_method) {
+	KMPMethod kmp;
+	char text[] = "", pattern[] = "ABCDABD";
+
+	ASSERT_EQ(-1, kmp.match(text, pattern));
+}
+
+TEST(StringMatchTest, should_return_error_when_text_str_length_is_less_than_pattern_str_in_kmp_method) {
+	KMPMethod kmp;
+	char text[] = "ABCDAB", pattern[] = "ABCDABD";
+
+	ASSERT_EQ(-1, kmp.match(text, pattern));
+}
+
+TEST(StringMatchTest, should_return_error_when_pattern_str_not_match_text_str_by_kmp_method) {
+	KMPMethod kmp;
+	char text[] = "BBC ABCDAB ABCDABC", pattern[] = "ABCDABD";
+
+	ASSERT_EQ(-1, kmp.match(text, pattern));
+}

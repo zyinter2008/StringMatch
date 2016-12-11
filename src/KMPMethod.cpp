@@ -13,42 +13,43 @@ int KMPMethod::match(const char *text, const char *pattern) {
 		return -1;
 	}
 
-	const char *p = pattern;
-	const char *b = text;
-	const char *t = b;
-
-
 	int map[pLen];
 
-	map[0]=0;
-	int j =0;
-	for(int i = 1; i< pLen;i++){
-		while(j>0 && p[j]!=p[i]){
-			j = map[j];
+	map[0] = 0;
+	int j = 0;
+	for (int i = 1; i < pLen; i++) {
+		while (j > 0 && pattern[j] != pattern[i]) {
+			j = map[j - 1];
 		}
-		if(p[j]==p[i]){
+		if (pattern[j] == pattern[i]) {
 			j++;
 		}
-		map[i]=j;
+		map[i] = j;
 	}
 
-	for(int i = 0; i< pLen;i++){
-		printf(">>>>>map[%d]=%d<<<<<\n",i,map[i]);
+	for (int i = 0; i < pLen; i++) {
+		printf(">>>>>map[%d]=%d<<<<<\n", i, map[i]);
 	}
 
 	int i = 0;
 	int k = 0;
-	while (t[i] != '\0') {
-		if (p[k] == t[i]) {
-			i++;
-			k++;
-		} else {
-			p = pattern + map[k];
-			i++;
+	while (text[i] != '\0') {
+		printf(">>>>>i=%d<<<<<\n", i);
+		while (k > 0 && pattern[k] != text[i]) {
+			k = map[k - 1];
 		}
-		if (p[k] == '\0') {
-			return i-j;
+
+		if (pattern[k] == text[i]) {
+			k++;
+		}
+		i++;
+		printf(">>>>>k=%d<<<<<\n", k);
+		if (pattern[k] == '\0') {
+			printf(">>>>>i=%d<<<<<\n", i);
+			printf(">>>>>k=%d<<<<<\n", k);
+			return i - k;
 		}
 	}
+
 	return -1;
 }
