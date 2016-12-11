@@ -4,18 +4,21 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/BadCharMethod.cpp \
 ../src/BruteForce.cpp \
 ../src/KMPMethod.cpp \
 ../src/StringMatchTest.cpp \
 ../src/main.cpp 
 
 OBJS += \
+./src/BadCharMethod.o \
 ./src/BruteForce.o \
 ./src/KMPMethod.o \
 ./src/StringMatchTest.o \
 ./src/main.o 
 
 CPP_DEPS += \
+./src/BadCharMethod.d \
 ./src/BruteForce.d \
 ./src/KMPMethod.d \
 ./src/StringMatchTest.d \

@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "BruteForce.h"
 #include "KMPMethod.h"
+#include "BadCharMethod.h"
 
 TEST(StringMatchTest, should_return_right_position_when_match_pattern_str_by_brute_force_method) {
 	BruteForce bf;
@@ -70,4 +71,18 @@ TEST(StringMatchTest, should_return_error_when_pattern_str_not_match_text_str_by
 	char text[] = "BBC ABCDAB ABCDABC", pattern[] = "ABCDABD";
 
 	ASSERT_EQ(-1, kmp.match(text, pattern));
+}
+
+TEST(StringMatchTest, should_return_right_position_when_match_pattern_str_by_bad_char_method) {
+	BadCharMethod bc;
+	char text[] = "BBC ABCDAB ABCDABCDABDE", pattern[] = "ABCDABD";
+
+	ASSERT_EQ(15, bc.match(text, pattern));
+}
+
+TEST(StringMatchTest, should_return_error_when_pattern_str_not_match_text_str_by_bad_char_method) {
+	BadCharMethod bc;
+	char text[] = "BBC ABCDAB ABCDABC", pattern[] = "ABCDABD";
+
+	ASSERT_EQ(-1, bc.match(text, pattern));
 }
