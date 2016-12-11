@@ -28,7 +28,7 @@ int BadCharMethod::match(const char *text, const char *pattern) {
 		if(i < 0){
 			return j;
 		}
-		else j += badMap[text[i+j]];
+		else j += badMap[text[i+j]] - pLen +1+i;
 		printf(">>>>>next:j=%d<<<<\n<", j);
 	}
 
